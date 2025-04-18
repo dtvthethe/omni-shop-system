@@ -12,10 +12,14 @@ source install.sh
 . install.sh
 ```
 
-
 # Check result
 
 ```bash
 printenv
 echo $<var name>
+```
+
+# Start docker
+```bash
+docker-compose up -d
 ```

@@ -3,4 +3,6 @@
 export "POSTGRES_USER="
 export "POSTGRES_PASSWORD="
 export "MINIO_ROOT_USER="
-export "MINIO_ROOT_PASSWORD=A"
+export "MINIO_ROOT_PASSWORD="
+export "PG_ADMIN_USER="
+export "PG_ADMIN_PASSWORD="

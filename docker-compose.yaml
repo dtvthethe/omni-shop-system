@@ -35,6 +35,23 @@ services:
       - "9001:9001"   # Web UI
     command: server /data --console-address ":9001"
 
+  postgresql-client:
+    image: dpage/pgadmin4
+    container_name: omni_pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_USER}
+      PGADMIN_DEFAULT_PASSWORD: ${PG_ADMIN_PASSWORD}
+    ports:
+      - "3412:80"
+
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    container_name: omni_redisinsight
+    restart: unless-stopped
+    ports:
+      - "8001:8001"  # RedisInsight web UI
+
 volumes:
   postgres_data:
   minio_data:
