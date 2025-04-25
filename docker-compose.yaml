@@ -52,6 +52,11 @@ services:
     ports:
       - "5540:5540"
 
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - "1080:1080" # Web UI
+      - "1025:1025" # SMTP server
 volumes:
   postgres_data:
   minio_data:
