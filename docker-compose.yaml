@@ -4,7 +4,7 @@ services:
   postgres:
     image: postgres:15
     container_name: omni_postgres
-    restart: unless-stopped
+    restart: unless-stopped # Auto-start this container when the system starts
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -19,7 +19,7 @@ services:
   redis:
     image: redis:alpine
     container_name: omni_redis
-    restart: unless-stopped
+    restart: unless-stopped # Auto-start this container when the system starts
     ports:
       - "6379:6379"
     networks:
@@ -28,7 +28,7 @@ services:
   minio:
     image: minio/minio
     container_name: omni_minio
-    restart: unless-stopped
+    restart: unless-stopped # Auto-start this container when the system starts
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
@@ -44,7 +44,7 @@ services:
   postgresql-client:
     image: dpage/pgadmin4
     container_name: omni_pgadmin
-    restart: unless-stopped
+    restart: unless-stopped # Auto-start this container when the system starts
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_USER}
       PGADMIN_DEFAULT_PASSWORD: ${PG_ADMIN_PASSWORD}
@@ -56,7 +56,7 @@ services:
   redisinsight:
     image: redislabs/redisinsight:latest
     container_name: omni_redisinsight
-    restart: unless-stopped
+    restart: unless-stopped # Auto-start this container when the system starts
     ports:
       - "5540:5540"
     networks:
@@ -67,6 +67,7 @@ services:
     ports:
       - "1080:1080" # Web UI
       - "1025:1025" # SMTP server
+    restart: unless-stopped # Auto-start this container when the system starts
     networks:
       - omni-shop-network
 
